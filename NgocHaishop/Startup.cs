@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using NgocHaishop.Business.Services.Brands;
 using NgocHaishop.Business.Services.Products;
 using NgocHaishop.Data.EF;
 
@@ -30,6 +31,7 @@ namespace NgocHaishop
             services.AddDbContext<NgocHaiShopDbContext>(option => option.UseSqlServer(Configuration.GetConnectionString("ngochaishop")));
             services.AddTransient<IProductService, ProductService>();
             services.AddTransient<ICategoryService, CategoryService>();
+            services.AddTransient<IBrandService,BrandService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

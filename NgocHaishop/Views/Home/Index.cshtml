@@ -1,4 +1,4 @@
-﻿@model NgocHaishop.Models.HomeViewModel
+﻿@model NgocHaishop.Models.HomeViewModel;
 @using System.Globalization;
 @{
     ViewData["Title"] = "Home Page";
@@ -90,11 +90,10 @@
                                 <div id="@cate.Cate_Name" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <ul>
-                                            <li><a href="">Nike </a></li>
-                                            <li><a href="">Under Armour </a></li>
-                                            <li><a href="">Adidas </a></li>
-                                            <li><a href="">Puma</a></li>
-                                            <li><a href="">ASICS </a></li>
+                                            @foreach (var brand in Model.Brands)
+                                            {
+                                            <li><a asp-controller="Products" asp-action="Index" asp-route-Cate_id="@cate.Cate_Id" asp-route-Brand_id="@brand.Brand_id" >@brand.Brand_Name</a></li>
+                                            }
                                         </ul>
                                     </div>
                                 </div>
@@ -134,13 +133,13 @@
                     <h2 class="title text-center">Features Items</h2>
                     @foreach (var item in Model.NewProduct)
                     {
-                        //string imagesurl = @item.Pro_Image;
-                        //imagesurl = imagesurl.Split('$').First();
+                        string imagesurl = @item.Pro_Image;
+                        imagesurl = imagesurl.Split('$').First();
                         <div class="col-sm-4">
                             <div class="product-image-wrapper">
                                 <div class="single-products">
                                     <div class="productinfo text-center">
-                                        <img src="@*~/images/Products/@imagesurl*@" alt="" height="300" />
+                                        <img src="~/images/Products/@imagesurl" alt="" height="300" />
                                         <h2>@item.Pro_Price.ToString("C0", new CultureInfo("vi-VN"))</h2>
                                         <p>@item.Pro_Name</p>
                                         <a href="/Products/Details/@item.Pro_Id" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>

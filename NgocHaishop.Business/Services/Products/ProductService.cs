@@ -26,6 +26,21 @@ namespace NgocHaishop.Business.Services.Products
             return await _context.Products.Include(pro=>pro.Category).ToListAsync();
         }
 
+        public async Task<List<Product>> GetByParam(int? Cate_id, int? Brand_id)
+        {
+            if (Cate_id != null && Brand_id == null)
+            {
+                return await _context.Products.Where(pro => pro.Pro_Category == Cate_id).ToListAsync();
+            }
+            else if (Brand_id != null && Cate_id == null)
+            {
+                return await _context.Products.Where(pro => pro.Pro_Brand == Brand_id).ToListAsync();
+            }
+            
+                return await _context.Products.Where(pro => pro.Pro_Category == Cate_id && pro.Pro_Brand==Brand_id).ToListAsync();
+            
+        }
+
         public async Task<List<Product>> NewProduct()
         {
             return await _context.Products.OrderByDescending(i => i.Pro_Id).Take(3).ToListAsync();

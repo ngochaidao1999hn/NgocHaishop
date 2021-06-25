@@ -10,7 +10,7 @@ namespace NgocHaishop.Data.Entities
         [Key]
         public int Brand_id { get; set; }
         public string Brand_Name { get; set; }
-        public string Pro_Description { get; set; }
+        public string Brand_Description { get; set; }
         public ICollection<Product> Products { get; set; }
     }
 }

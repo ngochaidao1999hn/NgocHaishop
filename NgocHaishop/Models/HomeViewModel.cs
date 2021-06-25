@@ -11,5 +11,6 @@ namespace NgocHaishop.Models
         public List<Category> Categories { get; set; }
         public List<Product> NewProduct { get; set; }
         public List<Product> BestSeller { get; set; }
+        public List<Brand> Brands{get;set;}
     }
 }

@@ -12,5 +12,6 @@ namespace NgocHaishop.Business.Services.Products
         Task<List<Product>> GetAll();
         Task<List<Product>> NewProduct();
         Task<List<Product>> BestSeller();
+        Task<List<Product>> GetByParam(int? Cate_id, int? Brand_id);
     }
 }
