@@ -142,13 +142,13 @@
                                         <img src="~/images/Products/@imagesurl" alt="" height="300" />
                                         <h2>@item.Pro_Price.ToString("C0", new CultureInfo("vi-VN"))</h2>
                                         <p>@item.Pro_Name</p>
-                                        <a href="/Products/Details/@item.Pro_Id" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                        <a asp-controller="Products" asp-action="Details" asp-route-id="@item.Pro_Id" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
                                     </div>
                                     <div class="product-overlay">
                                         <div class="overlay-content">
                                             <h2>@item.Pro_Price.ToString("C0", new CultureInfo("vi-VN"))</h2>
                                             <p>@item.Pro_Name</p>
-                                            <a href="/Products/Details/@item.Pro_Id" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                            <a asp-controller="Products" asp-action="Details" asp-route-id="@item.Pro_Id" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
                                         </div>
                                     </div>
                                 </div>

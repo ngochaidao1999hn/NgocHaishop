@@ -18,6 +18,13 @@ namespace NgocHaishop.Data.Entities
         [Required]
         public OrderEnum Cart_Status { get; set; }
         public string Cart_Promo { get; set; }
+        [Required]
+        [StringLength(11, ErrorMessage = "Không đúng định dạng số điện thoại")]
+        public string Cart_PhoneNumber { get; set; }
+        [Required]
+        public string Cart_Adress { get; set; }
+        [Required]
+        public string Cart_Name { get; set; }
         public Customer Customer { get; set; }
         public ICollection<CartDetail> CartDetails { get; set; }
     }
